@@ -13,7 +13,7 @@ class taskslist extends StatelessWidget {
 
   Widget _list() {
     return ListView.separated(
-      itemCount: 3,
+      itemCount: 5,
       padding: const EdgeInsets.only(
           left: padding35, top: padding115, right: padding35),
       separatorBuilder: (BuildContext context, int index) {
