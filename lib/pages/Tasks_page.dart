@@ -13,9 +13,15 @@ class Taskspage extends StatelessWidget {
     Enabled() => null;
     return Scaffold(
         appBar: AppBar(
-            leading: Container(padding: EdgeInsets.all(12), child: SvgPicture.asset("assets/icons/barWhite.svg", width: 24, height: 24)),
+            leading: Container(
+                padding: EdgeInsets.all(12),
+                child: SvgPicture.asset("assets/icons/barWhite.svg",
+                    width: 24, height: 24)),
             backgroundColor: AppBarColor,
-            title: const Align(alignment: Alignment.topRight, child: Text("Habitega", style: TextStyle(color: Colors.white)))),
+            title: const Align(
+                alignment: Alignment.topRight,
+                child:
+                    Text("Habitega", style: TextStyle(color: Colors.white)))),
         bottomNavigationBar: BottomNavigationBar(
             backgroundColor: const Color(0xFF201047),
             type: BottomNavigationBarType.fixed,
@@ -35,6 +41,8 @@ class Taskspage extends StatelessWidget {
                   icon: SvgPicture.asset("assets/icons/goals.svg"),
                   label: 'Goals')
             ]),
-        body: Container(color: backgroundColor, child: const taskslist())); //
+        body: Container(
+            color: backgroundColor,
+            child: Column(children: [Container(color: containerColor), Container(color: containerColor)]))); //
   }
 }
