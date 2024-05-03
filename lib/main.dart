@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hebitega/pages/Tasks_page.dart';
+import 'package:hebitega/pages/tasks_page.dart';
 
 
 void main() {
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true
       ),
       home: const Taskspage(),
     );
