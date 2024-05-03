@@ -1,4 +1,5 @@
 const double fontSize16 = 16;
+const double fontSize24 = 24;
 
 const double height11 = 11;
 const double height65 = 65;

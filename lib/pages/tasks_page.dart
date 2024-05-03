@@ -4,6 +4,7 @@ import 'package:hebitega/design/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hebitega/pages/hero_page.dart';
 import 'package:hebitega/pages/tasks_list.dart';
+import 'package:hebitega/pages/login_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Taskspage extends StatelessWidget {
@@ -32,6 +33,6 @@ class Taskspage extends StatelessWidget {
                   icon: SvgPicture.asset("assets/icons/goals.svg"),
                   label: 'Goals')
             ]),
-        body: HeroPage()); //
+        body: LoginPage()); // was HeroPage()
   }
 }
