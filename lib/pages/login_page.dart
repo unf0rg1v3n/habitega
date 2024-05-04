@@ -16,7 +16,8 @@ class _LoginPageState extends State<LoginPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: Column(
+      body: SingleChildScrollView(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage>{
               child: Text(
                 "HabitEga",
                 style: GoogleFonts.poppins(
-                  fontSize: 54.0,
+                  fontSize: fontSize54,
                   fontWeight: FontWeight.w500,
                   color: AppBarColor,
                 ),
@@ -38,7 +39,7 @@ class _LoginPageState extends State<LoginPage>{
             child: Text(
               "Login to\nyour account",
               style: GoogleFonts.poppins(
-                fontSize: 26.0,
+                fontSize: fontSize26,
                 fontWeight: FontWeight.w500,
                 color: AppBarColor,
               ),
@@ -55,10 +56,18 @@ class _LoginPageState extends State<LoginPage>{
                 hintStyle: GoogleFonts.poppins(
                     color: Colors.white54
                 ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(color: activeiconColor, width: 2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(color: activeiconColor, width: 2),
+                  )
               ),
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: height10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: TextField(
@@ -69,10 +78,18 @@ class _LoginPageState extends State<LoginPage>{
                 hintStyle: GoogleFonts.poppins(
                     color: Colors.white54
                 ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(color: activeiconColor, width: 2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(color: activeiconColor, width: 2),
+                  )
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: height8),
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
@@ -93,12 +110,33 @@ class _LoginPageState extends State<LoginPage>{
                   fixedSize: const Size(double.infinity, 40),
                 ),
                 onPressed: (){},
-                child: Text("Login"),
+                child: Text(
+                  "Login",
+                  style: GoogleFonts.poppins(color: Colors.white70)
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: activeiconColor,
+                  fixedSize: const Size(double.infinity, 40),
+                ),
+                onPressed: (){},
+                child: Text(
+                    "Create Account",
+                    style: GoogleFonts.poppins(color: Colors.white70),
+                ),
               ),
             ),
           ),
       ],
     ),
+      )
     );
   }
 }

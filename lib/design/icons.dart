@@ -10,3 +10,5 @@ final SvgPicture iconplus = SvgPicture.asset('assets/icons/iconplus.svg');
 final SvgPicture hamburgericon = SvgPicture.asset('assets/icons/hamburger.svg');
 
 final SvgPicture stepsicon = SvgPicture.asset('assets/icons/soccer-one.svg');
+
+final SvgPicture hero = SvgPicture.asset('assets/icons/hero.svg');
