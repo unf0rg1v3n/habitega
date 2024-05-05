@@ -6,6 +6,8 @@ const Color backgroundColor = const Color(0xFFFEF7FF);
 
 const Color BottomNavigationBarColor = Color(0xFFFEF7FF);
 
+const Color BottomNavigationBarSelectedItemColor = Color(0xFFE8DEF8);
+
 const Color containerColor = Color(0xFFFFFFFF);
 
 const Color mainColor = Color(0xFF424141);
