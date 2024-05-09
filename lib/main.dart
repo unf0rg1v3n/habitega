@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hebitega/pages/login_page.dart';
+import 'package:hebitega/pages/register_page.dart';
 import 'package:hebitega/pages/tasks_page.dart';
 import 'package:hebitega/design/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -60,11 +62,15 @@ class _MyAppState extends State<MyApp> {
                       setState(() {
                         _index = index;
                       })
+
                     }),
             body: Container(
               color: BottomNavigationBarColor,
               //color: BottomNavigationBarColor,
                 //children: [HeroPage(), TasksPage(), CommunityPage()]
-                child: pageList[_index])));
+                //child: pageList[_index])));
+                //child: RegisterPage()
+                child: pageList[_index]
+    )));
   }
 }

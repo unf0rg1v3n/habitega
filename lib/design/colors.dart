@@ -19,3 +19,5 @@ const Color activeiconColor = Color(0xFFA065AA);
 const Color healtColor = Color(0xFFFF4E4E);
 
 const Color expColor = Color(0xFFE9D622);
+
+const Color edgeColor = Color(0xFF65558F);

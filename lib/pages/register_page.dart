@@ -3,19 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hebitega/components/my_textfield.dart';
 import 'package:hebitega/design/colors.dart';
 import 'package:hebitega/design/dimensions.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 
 class RegisterPage extends StatefulWidget{
-  const RegisterPage({super.key});
+   const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage>{
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,56 +66,21 @@ class _RegisterPageState extends State<RegisterPage>{
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Symbols.person),
-                          labelText: "Username",
-                          fillColor: activeiconColor,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          )
-                      ),
+                    MyTextField(
+                      controller: usernameController,
+                      hintText: "Username",
+                      obscureText: false,
                     ),
                     const SizedBox(height: 16),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Symbols.email),
-                          labelText: "Email",
-                          fillColor: activeiconColor,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          )
-                      ),
-
-
-                    ),
+                    MyTextField(
+                        controller: emailController,
+                        hintText: "Email",
+                        obscureText: false),
                     const SizedBox(height: 8),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(Symbols.password),
-                          labelText: "Password",
-                          filled: true,
-                          fillColor: activeiconColor,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            borderSide: BorderSide(color: activeiconColor, width: 2),
-                          )
-                      ),
-                    ),
+                    MyTextField(
+                        controller: passwordController,
+                        hintText: "Password",
+                        obscureText: true),
                     const SizedBox(height: 8),
                   ]
                 ),
