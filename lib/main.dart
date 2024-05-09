@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
         home: Scaffold(
+          backgroundColor: BottomNavigationBarColor,
             bottomNavigationBar: NavigationBar(
                 destinations: [
                   NavigationDestination(
@@ -62,7 +63,6 @@ class _MyAppState extends State<MyApp> {
                       })
                     }),
             body: Container(
-              color: BottomNavigationBarColor,
               //color: BottomNavigationBarColor,
                 //children: [HeroPage(), TasksPage(), CommunityPage()]
                 child: pageList[_index])));
