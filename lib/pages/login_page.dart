@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hebitega/components/my_textfield.dart';
 import 'package:hebitega/design/colors.dart';
 import 'package:hebitega/design/dimensions.dart';
 
@@ -12,6 +13,8 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage>{
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,61 +38,48 @@ class _LoginPageState extends State<LoginPage>{
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 64.0),
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
               "Login to\nyour account",
               style: GoogleFonts.poppins(
-                fontSize: fontSize26,
+                fontSize: fontSize32,
                 fontWeight: FontWeight.w500,
                 color: AppBarColor,
               ),
               textAlign: TextAlign.center,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: activeiconColor,
-                hintText: "Username or email",
-                hintStyle: GoogleFonts.poppins(
-                    color: Colors.white54
-                ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: BorderSide(color: activeiconColor, width: 2),
+          Form(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: SizedBox(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 56,
+                    left: 24,
+                    bottom: 10,
+                    right: 24,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: BorderSide(color: activeiconColor, width: 2),
-                  )
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MyTextField(
+                          controller: usernameController,
+                          hintText: "Username",
+                          obscureText: false,
+                        ),
+                        const SizedBox(height: 16),
+                        MyTextField(
+                            controller: passwordController,
+                            hintText: "Password",
+                            obscureText: true),
+                        const SizedBox(height: 8),
+                      ]
+                  ),
+                ),
               ),
             ),
           ),
-          SizedBox(height: height10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: activeiconColor,
-                hintText: "Password",
-                hintStyle: GoogleFonts.poppins(
-                    color: Colors.white54
-                ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: BorderSide(color: activeiconColor, width: 2),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: BorderSide(color: activeiconColor, width: 2),
-                  )
-              ),
-            ),
-          ),
-          const SizedBox(height: height8),
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
