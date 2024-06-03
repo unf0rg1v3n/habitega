@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:hebitega/pages/login_page.dart';
 import 'package:hebitega/pages/register_page.dart';
+import 'package:hebitega/pages/settings_page.dart';
 import 'package:hebitega/pages/tasks_page.dart';
 import 'package:hebitega/design/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  final pageList = const <Widget>[HeroPage(), TasksPage(), CommunityPage(), GoalsPage()];
+  final pageList = const <Widget>[HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class _MyAppState extends State<MyApp> {
                       label: 'Society'),
                   NavigationDestination(
                       icon: SvgPicture.asset("assets/icons/goals.svg"),
-                      label: 'Goals')
+                      label: 'Settings')
                 ],
                 backgroundColor: BottomNavigationBarColor,
                 selectedIndex: _index,
@@ -67,7 +69,7 @@ class _MyAppState extends State<MyApp> {
                     }),
             body: Container(
               //color: BottomNavigationBarColor,
-                //children: [HeroPage(), TasksPage(), CommunityPage()]
+                //children: [HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()]
                 //child: pageList[_index])));
                 //child: RegisterPage()
                 child: pageList[_index]
