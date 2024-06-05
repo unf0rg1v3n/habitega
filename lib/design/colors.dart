@@ -1,12 +1,12 @@
 import 'dart:ui';
 
-const Color AppBarColor = Color(0xFF65558F);
+const Color AppBarColor = Color(0xFF322F35);
 
-const Color backgroundColor = Color(0xFFFEF7FF);
+const Color backgroundColor = Color(0xFF322F35);
 
-const Color BottomNavigationBarColor = Color(0xFFFEF7FF);
+const Color BottomNavigationBarColor = Color(0xFF4A454E);
 
-const Color BottomNavigationBarSelectedItemColor = Color(0xFFE8DEF8);
+const Color BottomNavigationBarSelectedItemColor = Color(0xFF645A70);
 
 const Color containerColor = Color(0xFFFFFFFF);
 

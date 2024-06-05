@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hebitega/design/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,64 +8,109 @@ import 'package:hebitega/design/dimensions.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 
 class HeroPage extends StatefulWidget {
+  static const name = "Персонаж";
+
   const HeroPage({super.key});
 
   @override
   State<HeroPage> createState() => _HeroPageState();
 }
 
+String getName() => "Yuta Okkotsu"; //TODO: реализовать функцию получения имени
+
+String getId() => "00000001"; //TODO: реализовать функцию получения id
+
+String getLevel() => "1000"; //TODO: реализовать функцию получения уровня
+
 class _HeroPageState extends State<HeroPage> {
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      Container(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          height: 267,
-          color: const Color(0xFFF5EFF7),
-          alignment: Alignment.topCenter,
-          child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset("assets/images/egor.png"))),
-      // Сделать возможность добавления своего аватара
-      Padding(
-          //Блок информации о игроке -- Имя, ID, уровень
-          padding: const EdgeInsets.all(16),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text("Egor-chad",
-                  style: GoogleFonts.oswald(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black)),
-              Text("id0000001",
-                  style: GoogleFonts.oswald(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.black))
-            ]),
-            Text("161 ур.",
-                style: GoogleFonts.oswald(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black))
-          ])),
-      Padding(
-          padding: const EdgeInsets.fromLTRB(28, 0, 28, 16),
-          child: LinearProgressIndicator(
-              backgroundColor: Colors.white,
-              color: Colors.yellow,
-              borderRadius: BorderRadius.circular(16),
-              value: 0.34,
-              // сделать динамическим
-              minHeight: 14)),
-      Achievements(),
-      CharacteristicsWidget()
-    ]);
+    return ListView(
+      children: [
+        Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(width: 100, height: 100, child: Placeholder()),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("${getName()}",
+                        style: GoogleFonts.oswald(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xFFBABABA))),
+                    Text("id${getId()}",
+                        style: GoogleFonts.oswald(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w200,
+                            color: const Color(0xFFBABABA))),
+                    Container(
+                        width: 250,
+                        alignment: Alignment.centerRight,
+                        child: Text("${getLevel()}",
+                            style: GoogleFonts.oswald(
+                                fontSize: 20,
+                                //textStyle: TextStyle(),
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xFFBABABA)))),
+                    Container(
+                        height: 12,
+                        width: 250,
+                        child: LinearProgressIndicator(
+                          value: 0.2,
+                          //TODO: Добавить функцию отслеживания прогресса
+                          backgroundColor: const Color(0xFFBABABA),
+                          color: const Color(0xFFCAC32A),
+                          borderRadius: BorderRadius.circular(5),
+                        ))
+                  ],
+                )
+              ],
+            )),
+        Showcase(h: 152),
+      ],
+    );
   }
 }
 
+class Showcase extends StatefulWidget {
+  const Showcase({super.key, this.h});
 
+  final double? h;
+
+  @override
+  State<Showcase> createState() => _ShowcaseState(h);
+}
+
+class _ShowcaseState extends State<Showcase> {
+  _ShowcaseState(this.h);
+
+  final double? h;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 152,
+        child: Column(children: [
+          TextButton(
+              onPressed: () => {},
+              style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Color(0xFF756C7D)),
+                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15))))),
+              child: Center(
+                  child: Text("Достижения",
+                      style: GoogleFonts.oswald(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xFFBABABA))))), Container(height: this.h, width: 152, color: Color(0xFF4D4B4F))
+        ]));
+  }
+}
 
 // Отвечает за выведение характеристик героя на странице hero_page
 class CharacteristicsWidget extends StatefulWidget {
@@ -82,9 +129,9 @@ class _CharacteristicsWidgetState extends State<CharacteristicsWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        padding: const EdgeInsets.all(10),
         child: Container(
-            color: Colors.white,
+            color: Color(0xFF4D4B4F),
             width: 380,
             child: Column(children: [
               Padding(
@@ -117,15 +164,18 @@ class _CharacteristicsWidgetState extends State<CharacteristicsWidget> {
                   child: Column(children: [
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("Сила",
-                            style: GoogleFonts.roboto(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black)), Text("$forceValue",
-                            style: GoogleFonts.roboto(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black))]),
+                        children: [
+                          Text("Сила",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black)),
+                          Text("$forceValue",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black))
+                        ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -142,15 +192,18 @@ class _CharacteristicsWidgetState extends State<CharacteristicsWidget> {
                         ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text("Мана",
-                            style: GoogleFonts.roboto(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black)), Text("$manaValue",
-                            style: GoogleFonts.roboto(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.black))]),
+                        children: [
+                          Text("Мана",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black)),
+                          Text("$manaValue",
+                              style: GoogleFonts.roboto(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black))
+                        ]),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -170,13 +223,9 @@ class _CharacteristicsWidgetState extends State<CharacteristicsWidget> {
   }
 }
 
-
-
-
 class Achievement extends StatelessWidget {
   final String path;
   final String description;
-
 
   const Achievement(this.path, this.description, {super.key});
 
@@ -229,37 +278,39 @@ class _AchievementsState extends State<Achievements> {
             decoration: const BoxDecoration(
                 color: Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.all(Radius.circular(15))
-              //border: Border.all(width: 1)
-            ),
+                //border: Border.all(width: 1)
+                ),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Achievement(
-                                "assets/icons/achievements_icons/star.svg",
-                                "King of Seduction"),
-                            Achievement(
-                                "assets/icons/achievements_icons/flag.svg",
-                                "CTF Winner"),
-                            Achievement(
-                                "assets/icons/achievements_icons/school.svg",
-                                "Disappoint the Dean")
-                          ])),
                   TextButton(
                       onPressed: () => {},
                       style: const ButtonStyle(
                           backgroundColor:
-                          MaterialStatePropertyAll(Color(0xFFFFFFFF)),
+                              MaterialStatePropertyAll(Color(0xFF756C7D)),
                           shape: MaterialStatePropertyAll(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(15),
-                                      bottomRight: Radius.circular(15))))),
-                      child: const Center(child: Text("View more ->")))
+                                      topLeft: Radius.circular(15),
+                                      topRight: Radius.circular(15))))),
+                      child: Center(child: Text("Достижения"))),
+                  Container(
+                      color: Color(0xFF4D4B4F),
+                      child: const Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Achievement(
+                                    "assets/icons/achievements_icons/star.svg",
+                                    "King of Seduction"),
+                                Achievement(
+                                    "assets/icons/achievements_icons/flag.svg",
+                                    "CTF Winner"),
+                                Achievement(
+                                    "assets/icons/achievements_icons/school.svg",
+                                    "Disappoint the Dean")
+                              ])))
                 ])));
   }
 }

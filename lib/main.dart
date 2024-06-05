@@ -10,9 +10,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hebitega/pages/hero_page.dart';
 import 'package:hebitega/pages/community_page.dart';
 import 'package:hebitega/pages/goals_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(const MyApp());
-
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -22,7 +22,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   int _index = 0;
   final PageController controller = PageController(initialPage: 0);
 
@@ -32,7 +31,18 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  final pageList = const <Widget>[HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()];
+  final pageNames = const <String>[
+    "Персонаж",
+    "Задачи",
+    "Сообщество",
+    "Найстройки"
+  ];
+  final pageList = const <Widget>[
+    HeroPage(),
+    TasksPage(),
+    CommunityPage(),
+    SettingsScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,38 +51,48 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
         home: Scaffold(
-          backgroundColor: BottomNavigationBarColor,
+            appBar: AppBar(
+                title: Text(pageNames[_index],
+                    style: GoogleFonts.oswald(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white)),
+                backgroundColor: AppBarColor),
+            backgroundColor: backgroundColor,
             bottomNavigationBar: NavigationBar(
                 destinations: [
                   NavigationDestination(
-                      icon: SvgPicture.asset("assets/icons/hero.svg"),
+                      icon: SvgPicture.asset("assets/icons/hero.svg",
+                          color: Colors.white),
                       label: 'Hero'),
                   NavigationDestination(
-                      icon: SvgPicture.asset("assets/icons/tasks.svg"),
+                      icon: SvgPicture.asset("assets/icons/tasks.svg",
+                          color: Colors.white),
                       label: 'Tasks'),
                   NavigationDestination(
-                      icon: SvgPicture.asset("assets/icons/society.svg"),
+                      icon: SvgPicture.asset("assets/icons/society.svg",
+                          color: Colors.white),
                       label: 'Society'),
                   NavigationDestination(
-                      icon: SvgPicture.asset("assets/icons/goals.svg"),
+                      icon: SvgPicture.asset("assets/icons/goals.svg",
+                          color: Colors.white),
                       label: 'Settings')
                 ],
+                labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
                 backgroundColor: BottomNavigationBarColor,
                 selectedIndex: _index,
                 indicatorColor: BottomNavigationBarSelectedItemColor,
-                height: 70,
+                height: 50,
                 onDestinationSelected: (index) => {
                       setState(() {
                         _index = index;
                       })
-
                     }),
             body: Container(
-              //color: BottomNavigationBarColor,
+                //color: BottomNavigationBarColor,
                 //children: [HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()]
                 //child: pageList[_index])));
                 //child: RegisterPage()
-                child: pageList[_index]
-    )));
+                child: pageList[_index])));
   }
 }
