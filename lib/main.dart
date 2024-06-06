@@ -91,8 +91,8 @@ class _MyAppState extends State<MyApp> {
             body: Container(
                 //color: BottomNavigationBarColor,
                 //children: [HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()]
-                //child: pageList[_index])));
-                //child: RegisterPage()
+                //child: LoginPage())));
+                //child: RegisterPage())));
                 child: pageList[_index])));
   }
 }
