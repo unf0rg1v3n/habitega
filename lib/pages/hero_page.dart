@@ -16,8 +16,7 @@ class HeroPage extends StatefulWidget {
   State<HeroPage> createState() => _HeroPageState();
 }
 
-String getName() => "Yuta Okkotsu"; //TODO: реализовать функцию получения имени
-
+String getName() => "Username";
 String getId() => "00000001"; //TODO: реализовать функцию получения id
 
 String getLevel() => "1000"; //TODO: реализовать функцию получения уровня
@@ -69,7 +68,7 @@ class _HeroPageState extends State<HeroPage> {
                 )
               ],
             )),
-        Showcase(h: 152),
+        Padding(padding: EdgeInsets.all(16), child: Showcase(h: 152)),
       ],
     );
   }
@@ -87,6 +86,8 @@ class Showcase extends StatefulWidget {
 class _ShowcaseState extends State<Showcase> {
   _ShowcaseState(this.h);
 
+  bool isEmpty = true;
+
   final double? h;
 
   @override
@@ -100,14 +101,33 @@ class _ShowcaseState extends State<Showcase> {
                   backgroundColor: MaterialStatePropertyAll(Color(0xFF756C7D)),
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15))))),
-              child: Center(
-                  child: Text("Достижения",
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10))))),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("Витрина достижений",
                       style: GoogleFonts.oswald(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFFBABABA))))), Container(height: this.h, width: 152, color: Color(0xFF4D4B4F))
+                          color: const Color(0xFFBABABA))))),
+          Container(
+              decoration: const BoxDecoration(
+                  color: Color(0xFF4D4B4F),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10))),
+              height: this.h,
+              child: isEmpty
+                  ? Center(
+                      child: Container(width: 200, child: Text(
+                          "На данный момент у вас нет ни одного достижения.",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.oswald(
+                              textStyle: TextStyle(),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: const Color(0xFFBABABA)))))
+                  : Placeholder())
         ]));
   }
 }
