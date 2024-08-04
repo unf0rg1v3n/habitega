@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
     "Сообщество",
     "Найстройки"
   ];
+
   final pageList = const <Widget>[
     HeroPage(),
     TasksPage(),
@@ -88,11 +89,11 @@ class _MyAppState extends State<MyApp> {
                         _index = index;
                       })
                     }),
-            body: Container(
+            body:
                 //color: BottomNavigationBarColor,
                 //children: [HeroPage(), TasksPage(), CommunityPage(), SettingsScreen()]
                 //child: LoginPage())));
                 //child: RegisterPage())));
-                child: pageList[_index])));
+                pageList[_index]));
   }
 }

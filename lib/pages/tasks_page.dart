@@ -18,52 +18,7 @@ class _TasksPageState extends State<TasksPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(children: [
-      Row(children: [
-        // ToggleButtons(
-        //     children: [
-        //       Container(
-        //         width: 90,
-        //           child:
-        //               Text("Привычки", style: TextStyle(color: Colors.white))),
-        //       Container(
-        //         width: 160,
-        //           child: Text("Ежедевные задачи",
-        //               style: TextStyle(color: Colors.white)))
-        //     ],
-        //     borderRadius: BorderRadius.circular(15),
-        //     selectedColor: Color(0xFF645A70),
-        //     isSelected: _selections,
-        //     onPressed: (int index) => {
-        //           setState(() {
-        //             for (int i = 0; i < 2; i++) {
-        //               if (_selections[i]) {
-        //                 _selections[i] = !_selections[i];
-        //               }
-        //             }
-        //             _selections[index] =
-        //                 !_selections[index]; //!_selections[index];
-        //           })
-        //         })
-
-        TextButton(
-            onPressed: () => {},
-            child: Text("Привычки", style: TextStyle(color: Colors.white)),
-            style: ButtonStyle()),
-        TextButton(
-            onPressed: () => {},
-            child:
-                Text("Ежедевные задачи", style: TextStyle(color: Colors.white)),
-            style: ButtonStyle())
-      ]),
-      SizedBox(
-          height: 750,
-          child: ListView(
-              scrollDirection: Axis.horizontal,
-              physics: PageScrollPhysics(),
-              children: [HabitsPage(), GoalsPage()]))
-    ]));
+    return Stack(children: [PageView(children: [HabitsPage(), GoalsPage()])]);
   }
 }
 
@@ -98,21 +53,37 @@ class _HabitsPageState extends State<HabitsPage> {
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xFFBABABA))),
-                SizedBox(height: 16, width: 420),
-                TextButton(
-                    onPressed: () => {},
-                    child: Row(children: [
-                      SvgPicture.asset("assets/icons/plus1.svg"),
-                      SizedBox(width: 6),
-                      Text("Создать", style: TextStyle(color: Colors.white))
-                    ]),
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0xFF6750A4))))
+                SizedBox(height: 16),
+                SizedBox(
+                    width: 100,
+                    height: 40,
+                    child: TextButton(
+                        onPressed: () => {},
+                        child: Row(children: [
+                          SvgPicture.asset("assets/icons/plus1.svg"),
+                          SizedBox(width: 6),
+                          Text("Создать", style: TextStyle(color: Colors.white))
+                        ]),
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(Color(0xFF6750A4)))))
               ])
         : Column();
   }
 }
+
+class SubPage extends StatelessWidget {
+  const SubPage({super.key, this.backgroundColor, this.text});
+
+  final Color? backgroundColor;
+  final String? text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Text(text??"none"), color: backgroundColor,);
+  }
+}
+
 
 class GoalsPage extends StatefulWidget {
   const GoalsPage({super.key});
@@ -145,17 +116,20 @@ class _GoalsPageState extends State<GoalsPage> {
                         fontSize: 10,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xFFBABABA))),
-                SizedBox(height: 16, width: 420),
-                TextButton(
-                    onPressed: () => {},
-                    child: Row(children: [
-                      SvgPicture.asset("assets/icons/plus1.svg"),
-                      SizedBox(width: 6),
-                      Text("Создать", style: TextStyle(color: Colors.white))
-                    ]),
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0xFF6750A4))))
+                const SizedBox(height: 16),
+                SizedBox(
+                    width: 100,
+                    height: 40,
+                    child: TextButton(
+                        onPressed: () => {},
+                        child: Row(children: [
+                          SvgPicture.asset("assets/icons/plus1.svg"),
+                          SizedBox(width: 6),
+                          Text("Создать", style: TextStyle(color: Colors.white))
+                        ]),
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(Color(0xFF6750A4)))))
               ])
         : Column();
   }
