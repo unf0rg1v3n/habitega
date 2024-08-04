@@ -29,10 +29,10 @@ class _LoginPageState extends State<LoginPage>{
               padding: const EdgeInsets.symmetric(vertical: 54.0),
               child: Text(
                 "HabitEga",
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.oswald(   //oswald or poppins?
                   fontSize: fontSize54,
                   fontWeight: FontWeight.w500,
-                  color: AppBarColor,
+                  color: titleColor,
                 ),
               ),
             ),
@@ -41,10 +41,10 @@ class _LoginPageState extends State<LoginPage>{
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
               "Login to\nyour account",
-              style: GoogleFonts.poppins(
+              style: GoogleFonts.oswald(
                 fontSize: fontSize32,
                 fontWeight: FontWeight.w500,
-                color: AppBarColor,
+                color: titleColor,
               ),
               textAlign: TextAlign.center,
             ),
@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage>{
               padding: const EdgeInsets.only(right: 16.0),
               child: Text(
                 "Forgot your password?",
-                style: GoogleFonts.poppins(color: AppBarColor),
+                style: GoogleFonts.oswald(color: AppBarColor),
               ),
             ),
           ),
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage>{
                 onPressed: (){},
                 child: Text(
                   "Login",
-                  style: GoogleFonts.poppins(color: Colors.white70)
+                  style: GoogleFonts.oswald(color: Colors.white70)
                 ),
               ),
             ),
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage>{
                 onPressed: (){},
                 child: Text(
                     "Create Account",
-                    style: GoogleFonts.poppins(color: Colors.white70),
+                    style: GoogleFonts.oswald(color: Colors.white70),
                 ),
               ),
             ),

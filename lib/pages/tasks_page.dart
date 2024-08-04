@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hebitega/pages/add_todo_button.dart';
 
 class TasksPage extends StatefulWidget {
   const TasksPage({super.key});
@@ -68,6 +69,7 @@ class _HabitsPageState extends State<HabitsPage> {
                             backgroundColor:
                                 MaterialStatePropertyAll(Color(0xFF6750A4)))))
               ])
+    //child: MyButton(),)])
         : Column();
   }
 }
@@ -133,4 +135,18 @@ class _GoalsPageState extends State<GoalsPage> {
               ])
         : Column();
   }
+  }
+class ForButton extends StatelessWidget {
+  const ForButton({super.key});
+
+  @override
+  Widget build(BuildContext context)
+  {
+    return Scaffold(
+      body: Center(
+        child: MyButton(),
+      ),
+    );
+  }
+
 }

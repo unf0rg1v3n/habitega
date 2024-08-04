@@ -11,6 +11,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,10 +26,10 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Settings",
-                      style: GoogleFonts.poppins(
-                        fontSize: fontSize45,
+                      style: GoogleFonts.oswald(
+                        fontSize: fontSize54,
                         fontWeight: FontWeight.w500,
-                        color: AppBarColor,
+                        color: Color(0xFFA065AA),
                       ),
                     ),
                   ],
@@ -45,10 +46,10 @@ class SettingsScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Set your own rules!",
-                        style: GoogleFonts.poppins(
-                          fontSize: fontSize24,
+                        style: GoogleFonts.oswald(
+                          fontSize: fontSize32,
                           fontWeight: FontWeight.w500,
-                          color: AppBarColor,
+                          color: Color(0xFFA065AA),
                         ),
                       ),
                     ],
@@ -61,9 +62,22 @@ class SettingsScreen extends StatelessWidget {
                   SettingsMenuTile(icon: Iconsax.airplane, title: 'Vacation mode', subTitle: 'Enable to skip all your habits',
                     trailing: Switch(value: false, onChanged: (value) {}),),
                   SizedBox(height: 50),
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton(onPressed: (){}, child: const Text('Logout')),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: activeiconColor,
+                          fixedSize: const Size(double.infinity, 40),
+                        ),
+                        onPressed: (){},
+                        child: Text(
+                            "Logout",
+                            style: GoogleFonts.oswald(color: Colors.white70)
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

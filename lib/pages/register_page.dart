@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage>{
                 style: GoogleFonts.poppins(
                   fontSize: fontSize54,
                   fontWeight: FontWeight.w500,
-                  color: AppBarColor,
+                  color: titleColor,
                 ),
               ),
             ),
@@ -47,7 +47,7 @@ class _RegisterPageState extends State<RegisterPage>{
               style: GoogleFonts.poppins(
                 fontSize: fontSize32,
                 fontWeight: FontWeight.w500,
-                color: AppBarColor,
+                color: titleColor,
               ),
               textAlign: TextAlign.center,
             ),

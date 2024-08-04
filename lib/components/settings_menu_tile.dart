@@ -22,9 +22,9 @@ class SettingsMenuTile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, size: 28, color: activeiconColor),
-      title: Text(title, style: Theme.of(context).textTheme.titleMedium),
-      subtitle: Text(subTitle, style: Theme.of(context).textTheme.labelMedium),
+      leading: Icon(icon, size: 32, color: activeiconColor),
+      title: Text(title, style: GoogleFonts.oswald(fontSize: fontSize20, color: Colors.white)),
+      subtitle: Text(subTitle, style: GoogleFonts.oswald(color: Colors.white70)),
       trailing: trailing,
       onTap: onTap,
     );
